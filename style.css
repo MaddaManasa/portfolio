@@ -1,0 +1,538 @@
+/* Variables */
+:root {
+    --navy: #0a192f;
+    --purple: #6c63ff;
+    --lavender: #adb0d1;
+    --dark-bg: #0f172a;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    background: linear-gradient(to right, var(--lavender), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Navbar */
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Keeps logo on left, nav-links area on right */
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(10, 25, 47, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto; /* Pushes the entire list to the right */
+    margin-right: 40px; /* Optional spacing before the burger icon */
+}
+
+.nav-links li a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 30px;
+    /* Updated Font Requirements */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400; 
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--purple);
+}
+
+/* Burger menu styling to ensure it stays on the right */
+.burger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-main);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Toggle this via your script.js */
+    }
+    .burger {
+        display: block;
+    }
+}
+
+/* Hero Layout Adjustment */
+.hero-name {
+    font-family: 'Playfair Display', serif; /* Stylish elegant font */
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a78bfa, #7c3aed, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centered grouping */
+    width: 100%;
+    gap: 80px; /* Increased gap to create clean "white space" between text and small photo */
+}
+
+.hero-text {
+    flex: 1;
+}
+
+/* Smaller Photo Section */
+.hero-image {
+    flex: 0.8; /* Takes up slightly less space than the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper {
+    width: 220px; /* Decreased from 300px */
+    height: 220px; /* Decreased from 300px */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--purple); /* Thinner border for smaller size */
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile Responsive: Even smaller on phones */
+@media (max-width: 768px) {
+    .image-wrapper {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+}
+/* Buttons */
+/* Updated Button Sizes */
+.btn {
+    padding: 8px 20px; /* Reduced padding from 12px 30px */
+    border-radius: 4px; /* Slightly sharper corners for a professional look */
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem; /* Smaller font size */
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.primary {
+    background: var(--purple);
+    color: white;
+    border: 1px solid var(--purple);
+}
+
+.secondary {
+    border: 1px solid var(--purple); /* Thinner border */
+    color: var(--purple);
+    background: transparent;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+    filter: brightness(1.1);
+}
+
+/* Container for buttons */
+.hero-btns {
+    display: flex;
+    gap: 12px; /* Closer spacing between buttons */
+}
+
+/* About & Stats */
+.stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--purple);
+}
+
+/* Skills */
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(108, 99, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+}
+
+/* Header & Icon */
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.skill-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--purple);
+    font-size: 1.5rem;
+}
+
+.skill-info h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 0;
+}
+
+.skill-info .level {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--purple);
+    letter-spacing: 1px;
+}
+
+/* Dot Rating System */
+.dot-rating {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dot.filled {
+    background: var(--purple);
+    box-shadow: 0 0 8px var(--purple);
+}
+
+/* Description Text */
+.skill-card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.progress-bar {
+    background: #334155;
+    height: 8px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.progress {
+    background: var(--purple);
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Projects */
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #1e293b;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--purple);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Image/Placeholder Area */
+.project-image {
+    height: 200px;
+    background: linear-gradient(45deg, #0f172a, #2d1b69);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(108, 99, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.project-card:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-overlay i {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Projects Section - Force 3 in a row */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Forces exactly 3 columns */
+    gap: 20px; /* Reduced gap to save space */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #1e293b;
+    border-radius: 12px; /* Slightly smaller radius */
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Decreased Image Height */
+.project-image {
+    height: 140px; /* Reduced from 200px */
+    background: linear-gradient(45deg, #0f172a, #2d1b69);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-placeholder {
+    font-size: 0.9rem; /* Smaller placeholder font */
+    opacity: 0.3;
+}
+
+/* Compact Content Area */
+.project-content {
+    padding: 15px; /* Reduced padding from 25px */
+}
+
+.project-content h3 {
+    font-size: 1.1rem; /* Smaller Title */
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.project-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem; /* Smaller Body Text */
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits text to 2 lines for uniformity */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Compact Tags */
+.project-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.project-tags span {
+    padding: 2px 8px;
+    font-size: 0.65rem;
+}
+
+/* Link alignment */
+.project-links {
+    margin-top: auto; /* Pushes links to the bottom of the card */
+}
+
+/* Responsive adjustment for Tablets & Mobile */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+}
+/* Certificates */
+.cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cert-item {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.cert-item:hover {
+    background: var(--purple);
+    transform: translateX(10px);
+}
+
+/* Contact */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #1e293b;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.email-link {
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.email-link:hover {
+    color: #c4b5fd;
+    text-decoration: underline;
+}
+.linkedin-link {
+    color: #0A66C2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.linkedin-link:hover {
+    color: #004182;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar { padding: 20px 5%; }
+    .nav-links { display: none; }
+    .contact-container { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.5rem; }
+    section { padding: 80px 5%; }
+}
