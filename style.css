@@ -45,66 +45,81 @@ section {
 }
 
 /* Navbar */
-/* Navbar Styling */
+/* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Keeps logo on left, nav-links area on right */
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
-    background: rgba(10, 25, 47, 0.95);
+    padding: 15px 8%;
+    background:var(--navy);;
+    color: white;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
     display: flex;
+    gap: 25px;
     list-style: none;
-    margin-left: auto; /* Pushes the entire list to the right */
-    margin-right: 40px; /* Optional spacing before the burger icon */
 }
 
-.nav-links li a {
-    color: var(--text-main);
+.nav-links a {
     text-decoration: none;
-    margin-left: 30px;
-    /* Updated Font Requirements */
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400; 
-    font-size: 0.95rem;
-    transition: color 0.3s;
+    color: white;
+    font-size: 16px;
+}
+/* Logo Styling */
+.logo {
+    font-family: 'Poppins', sans-serif; /* or Playfair Display for stylish look */
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    /* Same gradient as your name */
+    background: linear-gradient(90deg, #a78bfa, #7c3aed, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing: 2px;
 }
 
-.nav-links li a:hover {
-    color: var(--purple);
-}
 
-/* Burger menu styling to ensure it stays on the right */
+/* Burger hidden on desktop */
 .burger {
-    display: none; /* Hidden on desktop */
+    display: none;
     cursor: pointer;
 }
 
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: var(--text-main);
+    background: white;
     margin: 5px;
-    transition: all 0.3s ease;
 }
 
-/* Mobile Responsive adjustment */
+/* Mobile */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Toggle this via your script.js */
+        position: absolute;
+        right: 0;
+        top: 60px;
+        background: #111;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        display: none;
+        padding: 20px 0;
     }
+
+    .nav-links.active {
+        display: flex;
+    }
+
     .burger {
         display: block;
     }
 }
-
 /* Hero Layout Adjustment */
 .hero-name {
     font-family: 'Playfair Display', serif; /* Stylish elegant font */
